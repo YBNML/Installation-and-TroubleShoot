@@ -1,8 +1,10 @@
-#Navigation system using Monodepth and PCL
+# Navigation system using Monodepth and PCL
 =========================================
 
 <hr/>
+
 ## 1. Requirements
+
 * Ubuntu 16.04.6 LTS
 
 ## 2. Setting
