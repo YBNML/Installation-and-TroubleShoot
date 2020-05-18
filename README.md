@@ -1,12 +1,13 @@
 # Navigation system using Monodepth and PCL
-=========================================
 
 <hr/>
 
 ## 1. Requirements
 
-* Ubuntu 16.04.6 LTS
-
+* Ubuntu : 16.04.6 LTS
+* Python : 3.7.7 (But Default version is 3.5.2) 
+* pip3 : 8.1.1 (python3.5)
+ 
 ## 2. Setting
 
 ### 2.1. PCL-Python install
