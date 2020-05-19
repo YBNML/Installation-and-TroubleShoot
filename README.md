@@ -7,6 +7,8 @@
 * Ubuntu : 16.04.6 LTS
 * Python : 3.7.7 (But Default version is 3.5.2) 
 * pip3 : 8.1.1 (python3.5)
+* tensorflow 1.13
+* CUDA 10.0
  
 ## 2. Setting
 
