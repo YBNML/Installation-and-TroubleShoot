@@ -9,12 +9,15 @@
 * pip3 : 8.1.1 (python3.5)
 * nvidia-driver : nvidia-384 
 	sudo apt-get install nvidia-418
+
 * cuda : 10.0
+
 	(Download Installer)
 	sudo dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
 	sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
 	sudo apt-get update
 	sudo apt-get install cuda
+
 * tensorflow 1.13
 
  
