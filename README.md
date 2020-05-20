@@ -3,13 +3,15 @@
 <hr/>
 
 ## 1. Requirements
-[Github]
+
+ [Github]
 * Ubuntu : 16.04.6 LTS
 * Python : 3.7.7 (But Default version is 3.5.2) 
 * pip3 : 8.1.1 (python3.5)
 * nvidia-driver : nvidia-384 
 * cuda : 10.0 
-[Realsense D435]
+
+ [Realsense D435]
 * Ubuntu : 16.04.6 LTS
 * ROS kinetic
  
