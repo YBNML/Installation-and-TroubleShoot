@@ -3,16 +3,17 @@
 <hr/>
 
 ## 1. Requirements
-
+[Github]
 * Ubuntu : 16.04.6 LTS
 * Python : 3.7.7 (But Default version is 3.5.2) 
 * pip3 : 8.1.1 (python3.5)
 * nvidia-driver : nvidia-384 
 * cuda : 10.0 
-* tensorflow 1.13
-
+[Realsense D435]
+* Ubuntu : 16.04.6 LTS
+* ROS kinetic
  
-## 2. Setting
+## 2. Setting_[Github]
 
 ### 2.1. nvidia-driver : nvidia-384
 	sudo apt-get install nvidia-384
