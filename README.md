@@ -9,7 +9,8 @@
 * Python : 3.7.7 (But Default version is 3.5.2) 
 * pip3 : 8.1.1 (python3.5)
 * nvidia-driver : nvidia-384 
-* cuda : 10.0 
+* cuda : 10.0.130 
+* CUDNN : 7.65
 
  [Realsense D435]
 * RealSense SDK 2.0 (librealsense version 2.34.0)
@@ -21,12 +22,17 @@
 ### 2.1. nvidia-driver : nvidia-384
 	sudo apt-get install nvidia-384
 
-### 2.2 cuda : 10.0
-	(Download Installer)
-	sudo dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
-	sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
-	sudo apt-get update
-	sudo apt-get install cuda
+### 2.2 cuda 10.0 & CUDNN 7.65
+	(Package List add)
+	release="ubuntu"$(lsb_release -sr | sed -e "s/\.//g")
+	echo $release
+	sudo apt install sudo gnupg
+	sudo apt-key adv --fetch-keys "http://developer.download.nvidia.com/compute/cuda/repos/"$release"/x86_64/7fa2af80.pub"
+	sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/'$release'/x86_64 /" > /etc/apt/sources.list.d/nvidia-cuda.list'
+	sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/'$release'/x86_64 /" > /etc/apt/sources.list.d/nvidia-machine-learning.list'
+	sudo apt update
+	sudo apt-get install cuda-10-0
+	sudo apt-get install libcudnn7-dev
 
 ### PCL-Python install
 	sudo add-apt-repository ppa:sweptlaser/python3-pcl #Python3 Only??
