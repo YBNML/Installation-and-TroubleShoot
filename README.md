@@ -33,6 +33,30 @@
 	sudo apt update
 	sudo apt-get install cuda-10-0
 	sudo apt-get install libcudnn7-dev
+	
+	(version check)
+	cat /usr/local/cuda/version.txt
+	cat /usr/include/cudnn.h | grep -E "CUDNN_MAJOR|CUDNN_MINOR|CUDNN_PATCHLEVEL"
+	sudo find / -name libcudnn*.*
+
+### 2.3 Python3.7
+	(in Ubuntu16.04, default version is 3.5)
+	sudo apt update 
+	sudo apt install software-properties-common
+	sudo add-apt-repository ppa:deadsnakes/ppa
+	sudo apt update
+	audo apt install python3.7
+
+	(install venv)
+	sudo apt-get install python3.7-venv
+
+	(alias about python3.7 & pip3)
+	alias python=python3.7
+	alias pip=pip3
+	
+	(pip)
+	sudo apt install python3-pip
+
 
 ### PCL-Python install
 	sudo add-apt-repository ppa:sweptlaser/python3-pcl #Python3 Only??
