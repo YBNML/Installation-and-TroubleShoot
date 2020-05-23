@@ -7,10 +7,11 @@
  [Github]
 * Ubuntu : 16.04.6 LTS
 * Python : 3.7.7 (But Default version is 3.5.2) 
-* pip3 : 8.1.1 (python3.5)
+* pip : 20.1.1
 * nvidia-driver : nvidia-384 
 * cuda : 10.0.130 
 * CUDNN : 7.65
+* tensorflow-gpu : 1.13.2
 
  [Realsense D435]
 * RealSense SDK 2.0 (librealsense version 2.34.0)
@@ -45,17 +46,14 @@
 	sudo apt install software-properties-common
 	sudo add-apt-repository ppa:deadsnakes/ppa
 	sudo apt update
-	audo apt install python3.7
+	sudo apt install python3.7
 
-	(install venv)
+	(venv)
 	sudo apt-get install python3.7-venv
+	python3.7 -m venv my-common-env
 
-	(alias about python3.7 & pip3)
-	alias python=python3.7
-	alias pip=pip3
-	
-	(pip)
-	sudo apt install python3-pip
+### 2.4 tensorflow-gpu 1.13.2
+	pip install tensorflow-gpu==1.13.1
 
 
 ### PCL-Python install
@@ -69,3 +67,9 @@
 	sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
 	sudo apt-get install librealsense2-dkms
 	sudo apt-get install librealsense2-utils
+
+## a.TroubleShoot
+
+### a.1 'connection reset by peer' during tensorflow-gpu install 
+
+
