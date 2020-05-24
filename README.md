@@ -12,6 +12,8 @@
 * cuda : 10.0.130 
 * CUDNN : 7.65
 * tensorflow-gpu : 1.13.2
+* keras : 2.2.4
+* (other package) : keras pillow matplotlib scikit-learn scikit-image opencv-python pydot GraphViz PyGLM PySide2 pyopengl 
 
  [Realsense D435]
 * RealSense SDK 2.0 (librealsense version 2.34.0)
@@ -55,6 +57,8 @@
 ### 2.4 tensorflow-gpu 1.13.2
 	pip install tensorflow-gpu==1.13.1
 
+### 2.5 keras 2.2.4
+	pip install keras==2.2.4
 
 ### PCL-Python install
 	sudo add-apt-repository ppa:sweptlaser/python3-pcl #Python3 Only??
