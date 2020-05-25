@@ -75,5 +75,9 @@
 ## a.TroubleShoot
 
 ### a.1 'connection reset by peer' during tensorflow-gpu install 
+	pip install tensorflow-gpu==1.13.1
+	(instead of)
+	pip install tensorflow-gpu==1.13.2
 
-
+### a.2 'HTTPSConnectionPool(---): Read timed out.'
+	pip --default-timeout=100 install (package name)
