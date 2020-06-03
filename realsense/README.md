@@ -7,19 +7,18 @@
 
 * Installation (linux) 
 
-
-
 ## 1. Installation
 
 ### 1.1 Most issues
+
 * firewall
 * timeout
 * device is empty (my troubleshooting)
 		
 ### 1.2 Prerequisites
-* verify supported kernel version 
 
- 	uname -a
+	(verify supported kernel version)	
+	uname -a
 
 * Prepare linux backend and the Dev. Environment
 
