@@ -1,4 +1,4 @@
-# Navigation system using Monodepth and PCL
+#Navigation system using Monodepth and PCL
 
 <hr/>
 
@@ -18,7 +18,9 @@
  [Realsense D435]
 * RealSense SDK 2.0 (librealsense version 2.35.0)
 
- [PCL]
+ [PCL & ROS]
+
+<hr/>
 
 ## 2. Setting_[Github]
 
@@ -60,10 +62,8 @@
 ### 2.5 keras 2.2.4
 	pip install keras==2.2.4
 
-### PCL-Python install
-	sudo add-apt-repository ppa:sweptlaser/python3-pcl #Python3 Only??
-	sudo apt update
-	sudo apt install python3-pcl
+
+<hr/>
 
 ## 3. Setting_[Realsense D435]
 
@@ -73,13 +73,35 @@
 	sudo apt-get install librealsense2-dkms
 	sudo apt-get install librealsense2-utils
 
-## 4. setting_[PCL]
+<hr/>
+
+## 4. Setting_[PCL & ROS]
 
 ### 4.1 PCL-C++
-
+	(Package install)
 	sudo apt-get update && sudo apt-get install -y software-properties-common git
 	sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update
 	sudo apt-get install -y libpcl-dev #ubuntu 16
+	
+	(Source install)
+	git clone https://github.com/PointCloudLibrary/pcl.git
+	cd pcl && mkdir release && cd release
+	cmake -DCMAKE_BUILD_TYPE=None -DCMAKE_INSTALL_PREFIX=/usr -DBUILD_GPU=ON -DBUILD_apps=ON -DBUILD_examples=ON -DCMAKE_INSTALL_PREFIX=/usr ..
+	make -j8
+	sudo make install
+
+### 4.2 ROS-kinetic
+	wget https://raw.githubusercontent.com/ROBOTIS-GIT/robotis_tools/master/install_ros_kinetic.sh
+	chmod +x install_ros_kinetic.sh
+	./install_ros_kinetic.sh 
+	
+	(Execution)
+	roscore
+
+### 4.3 ROS & PCL
+
+
+<hr/>
 
 ## a.TroubleShoot
 
