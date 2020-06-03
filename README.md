@@ -16,10 +16,10 @@
 * (other package) : keras pillow matplotlib scikit-learn scikit-image opencv-python pydot GraphViz PyGLM PySide2 pyopengl 
 
  [Realsense D435]
-* RealSense SDK 2.0 (librealsense version 2.34.0)
-* Ubuntu : 16.04.6 LTS
-* ROS kinetic
- 
+* RealSense SDK 2.0 (librealsense version 2.35.0)
+
+ [PCL]
+
 ## 2. Setting_[Github]
 
 ### 2.1. nvidia-driver : nvidia-384
@@ -64,6 +64,7 @@
 	sudo add-apt-repository ppa:sweptlaser/python3-pcl #Python3 Only??
 	sudo apt update
 	sudo apt install python3-pcl
+
 ## 3. Setting_[Realsense D435]
 
 ### 3.1 librealsense 2.34.0
@@ -71,6 +72,14 @@
 	sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
 	sudo apt-get install librealsense2-dkms
 	sudo apt-get install librealsense2-utils
+
+## 4. setting_[PCL]
+
+### 4.1 PCL-C++
+
+	sudo apt-get update && sudo apt-get install -y software-properties-common git
+	sudo add-apt-repository ppa:v-launchpad-jochen-sprickerhof-de/pcl -y && sudo apt-get update
+	sudo apt-get install -y libpcl-dev #ubuntu 16
 
 ## a.TroubleShoot
 
