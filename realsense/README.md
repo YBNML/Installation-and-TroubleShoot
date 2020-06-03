@@ -17,8 +17,8 @@
 * device is empty (my troubleshooting)
 		
 ### 1.2 Prerequisites
-* verify supported kernel version
-	uname -a
+* verify supported kernel version 
+ 	uname -a
 * Prepare linux backend and the Dev. Environment
 	sudo apt-get install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
 	sudo apt-get install libglfw3-dev
