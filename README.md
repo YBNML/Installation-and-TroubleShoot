@@ -7,11 +7,11 @@
  [Github]
 * Ubuntu : 16.04.6 LTS
 * nvidia-driver : nvidia-440.64 
-
-* Python : 3.7.7 (But Default version is 3.5.2) 
-* pip : 20.1.1
 * cuda : 10.0.130 
 * CUDNN : 7.65
+* Python : 3.7.7
+* pip : 20.1.1
+
 * tensorflow-gpu : 1.13.2
 * keras : 2.2.4
 * (other package) : keras pillow matplotlib scikit-learn scikit-image opencv-python pydot GraphViz PyGLM PySide2 pyopengl 
@@ -33,7 +33,7 @@
 
 	(Package List add)
 	release="ubuntu"$(lsb_release -sr | sed -e "s/\.//g")
-	echo $release
+	echo $release				
 	sudo apt install sudo gnupg
 	sudo apt-key adv --fetch-keys "http://developer.download.nvidia.com/compute/cuda/repos/"$release"/x86_64/7fa2af80.pub"
 	sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/'$release'/x86_64 /" > /etc/apt/sources.list.d/nvidia-cuda.list'
