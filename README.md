@@ -11,7 +11,6 @@
 * CUDNN : 7.65
 * Python : 3.7.7
 * pip : 20.1.1
-
 * tensorflow-gpu : 1.13.2
 * keras : 2.2.4
 * (other package) : keras pillow matplotlib scikit-learn scikit-image opencv-python pydot GraphViz PyGLM PySide2 pyopengl 
@@ -60,7 +59,7 @@
 	python3.7 -m venv my-common-env
 
 ### 2.4 tensorflow-gpu 1.13.2
-	pip install tensorflow-gpu==1.13.1
+	pip install tensorflow-gpu==1.13.2
 
 ### 2.5 keras 2.2.4
 	pip install keras==2.2.4
@@ -70,8 +69,8 @@
 
 ## 3. Setting_[Realsense D435]
 
-### 3.1 librealsense 2.34.0
-	sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key 
+### 3.1 librealsense 2.35.0
+	sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
 	sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
 	sudo apt-get install librealsense2-dkms
 	sudo apt-get install librealsense2-utils
@@ -111,10 +110,12 @@
 ### a.1 Nvidia Driver (Reason is Language setting)
 	(Reference - https://hiseon.me/linux/ubuntu/install_nvidia_driver/)
 
-### a.2 'connection reset by peer' during tensorflow-gpu install 
+### a.2 'connection reset by peer' during tensorflow-gpu installation 
 	pip install tensorflow-gpu==1.13.1
-	(instead of)
+	(instead)
 	pip install tensorflow-gpu==1.13.2
 
 ### a.3 'HTTPSConnectionPool(---): Read timed out.'
 	pip --default-timeout=100 install (package name)
+
+### a.4 
