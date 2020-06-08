@@ -6,9 +6,10 @@
 
  [Github]
 * Ubuntu : 16.04.6 LTS
+* nvidia-driver : nvidia-440.64 
+
 * Python : 3.7.7 (But Default version is 3.5.2) 
 * pip : 20.1.1
-* nvidia-driver : nvidia-384 
 * cuda : 10.0.130 
 * CUDNN : 7.65
 * tensorflow-gpu : 1.13.2
@@ -24,10 +25,12 @@
 
 ## 2. Setting_[Github]
 
-### 2.1. nvidia-driver : nvidia-384
-	sudo apt-get install nvidia-384
+### 2.1. nvidia-driver : nvidia-440.64
+	(Reference - https://hiseon.me/linux/ubuntu/install_nvidia_driver/)
 
 ### 2.2 cuda 10.0 & CUDNN 7.65
+	(Reference - https://blog.nerdfactory.ai/2019/07/25/how-to-install-tensorflow-gpu-in-ubuntu16.04-copy.html)
+
 	(Package List add)
 	release="ubuntu"$(lsb_release -sr | sed -e "s/\.//g")
 	echo $release
@@ -105,10 +108,13 @@
 
 ## a.TroubleShoot
 
-### a.1 'connection reset by peer' during tensorflow-gpu install 
+### a.1 Nvidia Driver (Reason is Language setting)
+	(Reference - https://hiseon.me/linux/ubuntu/install_nvidia_driver/)
+
+### a.2 'connection reset by peer' during tensorflow-gpu install 
 	pip install tensorflow-gpu==1.13.1
 	(instead of)
 	pip install tensorflow-gpu==1.13.2
 
-### a.2 'HTTPSConnectionPool(---): Read timed out.'
+### a.3 'HTTPSConnectionPool(---): Read timed out.'
 	pip --default-timeout=100 install (package name)
