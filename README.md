@@ -118,6 +118,6 @@
 ### a.3 'HTTPSConnectionPool(---): Read timed out.'
 	pip --default-timeout=100 install (package name)
 
-### a.4  'UnknownError: Failed to get convolution algorithm. <br/> This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.'
+### a.4  'UnknownError: Failed to get convolution algorithm. <br/> ?		This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.'
 
 	
