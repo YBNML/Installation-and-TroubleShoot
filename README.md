@@ -29,6 +29,7 @@
 
 ### 2.2 cuda 10.0 & CUDNN 7.6.1
 	(Reference - https://blog.nerdfactory.ai/2019/07/25/how-to-install-tensorflow-gpu-in-ubuntu16.04-copy.html)
+	(Reference - https://goodtogreate.tistory.com/entry/TensorFlow-GPU-%EB%B2%84%EC%A0%84-%EC%9A%B0%EB%B6%84%ED%88%AC-1604%EC%97%90-%EC%84%A4%EC%B9%98-%ED%95%98%EA%B8%B0)
 
 	(먼저 nvidia 홈페이지에서 ubuntu16.04, cuda10.0에 맞는 설치파일을 다운로드, 설치한 경로에서 아래의 커맨트를 입력)
 	sudo dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
@@ -121,3 +122,6 @@
 	pip --default-timeout=100 install (package name)
 
 ### a.4  'UnknownError: Failed to get convolution algorithm. <br/>		This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.'
+
+
+### a.5
