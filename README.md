@@ -8,7 +8,7 @@
 * Ubuntu : 16.04.6 LTS
 * nvidia-driver : nvidia-440.64 
 * cuda : 10.0.130 
-* CUDNN : 7.65
+* CUDNN : 7.6.1
 * Python : 3.7.7
 * pip : 20.1.1
 * tensorflow-gpu : 1.13.2
@@ -27,24 +27,26 @@
 ### 2.1. nvidia-driver : nvidia-440.64
 	(Reference - https://hiseon.me/linux/ubuntu/install_nvidia_driver/)
 
-### 2.2 cuda 10.0 & CUDNN 7.65
+### 2.2 cuda 10.0 & CUDNN 7.6.1
 	(Reference - https://blog.nerdfactory.ai/2019/07/25/how-to-install-tensorflow-gpu-in-ubuntu16.04-copy.html)
 
-	(Package List add)
-	release="ubuntu"$(lsb_release -sr | sed -e "s/\.//g")
-	echo $release				
-	sudo apt install sudo gnupg
-	sudo apt-key adv --fetch-keys "http://developer.download.nvidia.com/compute/cuda/repos/"$release"/x86_64/7fa2af80.pub"
-	sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/'$release'/x86_64 /" > /etc/apt/sources.list.d/nvidia-cuda.list'
-	sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/'$release'/x86_64 /" > /etc/apt/sources.list.d/nvidia-machine-learning.list'
-	sudo apt update
-	sudo apt-get install cuda-10-0
-	sudo apt-get install libcudnn7-dev
-	
+	(먼저 nvidia 홈페이지에서 ubuntu16.04, cuda10.0에 맞는 설치파일을 다운로드, 설치한 경로에서 아래의 커맨트를 입력)
+	sudo dpkg -i cuda-repo-ubuntu1604-10-0-local-10.0.130-410.48_1.0-1_amd64.deb
+	sudo apt-key add /var/cuda-repo-10-0-local-10.0.130-410.48/7fa2af80.pub
+	sudo apt-get update
+	sudo apt-get install cuda
+
 	(version check)
-	cat /usr/local/cuda/version.txt
-	cat /usr/include/cudnn.h | grep -E "CUDNN_MAJOR|CUDNN_MINOR|CUDNN_PATCHLEVEL"
-	sudo find / -name libcudnn*.*
+	nvcc --version
+
+	(CUDNN 설치파일을 다운)
+	sudo tar -xzvf cudnn-9.0-linux-x64-v7.0.tgz
+	sudo cp include/cudnn.h /usr/local/cuda/include
+	sudo cp lib64/libcudnn* /usr/local/cuda/lib64
+	sudo chmod a+r /usr/local/cuda/lib64/libcudnn*
+
+	(version check)
+	cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
 
 ### 2.3 Python3.7
 	(in Ubuntu16.04, default version is 3.5)
