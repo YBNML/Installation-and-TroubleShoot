@@ -11,7 +11,7 @@
 * CUDNN : 7.6.1
 * Python : 3.7.7
 * pip : 20.1.1
-* tensorflow-gpu : 1.13.1
+* tensorflow-gpu : 1.13.2
 * keras : 2.2.4
 * (other package) : keras pillow matplotlib scikit-learn scikit-image opencv-python pydot GraphViz PyGLM PySide2 pyopengl 
 
@@ -26,10 +26,28 @@
 
 ### 2.1. nvidia-driver : nvidia-440.64
 	(Reference - https://hiseon.me/linux/ubuntu/install_nvidia_driver/)
+	release="ubuntu"$(lsb_release -sr | sed -e "s/\.//g")
+	echo $release
 
-### 2.2 cuda 10.0
-	(Reference - https://blog.nerdfactory.ai/2019/07/25/how-to-install-tensorflow-gpu-in-ubuntu16.04-copy.html)
+	sudo apt install sudo gnupg
+	sudo apt-key adv --fetch-keys "http://developer.download.nvidia.com/compute/cuda/repos/"$release"/x86_64/7fa2af80.pub"
+	sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/cuda/repos/'$release'/x86_64 /" > /etc/apt/sources.list.d/nvidia-cuda.list'
+	sudo sh -c 'echo "deb http://developer.download.nvidia.com/compute/machine-learning/repos/'$release'/x86_64 /" > /etc/apt/sources.list.d/	idia-machine-learning.list'
+	sudo apt update
+	
+	apt-cache search nvidia
+
+	sudo apt-get install nvidia-driver-440
+	sudo apt-get install dkms nvidia-modprobe
+
+	(reboot)
+
+	nvidia-smi
+
+### 2.2 cuda 10.0.130
 	(Reference - https://www.pugetsystems.com/labs/hpc/How-To-Install-CUDA-10-together-with-9-2-on-Ubuntu-18-04-with-support-for-NVIDIA-20XX-Turing-GPUs-1236/#do-i-need-to-install-cuda-10)
+	(Reference - https://jangjy.tistory.com/195)
+	(Reference - https://eungbean.github.io/2018/08/08/Ubuntu-Installation2-1/)
 	
 	(Install CUDA "dependencies")
 	sudo apt-get install build-essential dkms
@@ -42,8 +60,16 @@
 	sudo apt-get install cuda-10-0
 
 	(reboot)
+	vim ~/.bashrc
+
+	export PATH=$PATH:/usr/local/cuda-10.0/bin
+	export CUDADIR=/usr/local/cuda-10.0
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64
+
+	source .bashrc
 
 	(version check)
+	nvcc -V
 	cat /usr/local/cuda/version.txt
 	cat /usr/local/cuda-10.0/version.txt
 
@@ -57,7 +83,6 @@
 	./nbody
 
 ### 2.3 CUDNN 7.6.1
-	(Reference - https://blog.nerdfactory.ai/2019/07/25/how-to-install-tensorflow-gpu-in-ubuntu16.04-copy.html)
 	(Reference - https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html)
 	(CUDNN 설치파일을 다운)
 	sudo tar -xzvf cudnn-10.0-linux-x64-v7.6.1.34.tgz
@@ -124,7 +149,6 @@
 
 ### 4.3 ROS & PCL
 
-
 <hr/>
 
 ## a.TroubleShoot
@@ -135,17 +159,27 @@
 ### a.2 'connection reset by peer' during tensorflow-gpu installation 
 	(try many times)
 
-### a.3 'HTTPSConnectionPool(---): Read timed out.'
+### a.3 ReadTimeoutError: 'HTTPSConnectionPool(---): Read timed out.'
 	pip --default-timeout=100 install (package name)
 
 ### a.4  'UnknownError: Failed to get convolution algorithm. <br/> This is probably because cuDNN failed to initialize, so try looking to see if a warning log message was printed above.' 
+	<sol 1>
 	(Reference - https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#package-manager-metas)
 	(incorrected) 	sudo apt-get install cuda			<< Handles upgrading to the next version of the cuda package when it's released. 
 	(corrected) 	sudo apt-get install cuda-10-0
 
+	<sol 2>
+	(Reference - https://github.com/tensorflow/tensorflow/issues/24496)
+	(Reference - https://eehoeskrap.tistory.com/290)
+	config = tf.ConfigProto()
+	config.gpu_options.allow_growth = True
+	sess = tf.Session(config=config)
+
 ### a.5 ImportError: libcublas.so.10.0: cannot open shared object file: No such file or directory
-	(Reference - https://jybaek.tistory.com/778)
-	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64/
+	(PATH setting) (~/.bashrc)
+	export PATH=$PATH:/usr/local/cuda-10.0/bin
+	export CUDADIR=/usr/local/cuda-10.0
+	export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-10.0/lib64
 
 ### a.6 Could not load the Qt platform plugin "xcb" in "" even though it was found. (error about pyside2)
 	export QT_DEBUG_PLUGINS=1
