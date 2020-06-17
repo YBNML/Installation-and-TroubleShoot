@@ -168,7 +168,7 @@
 	(incorrected) 	sudo apt-get install cuda			<< Handles upgrading to the next version of the cuda package when it's released. 
 	(corrected) 	sudo apt-get install cuda-10-0
 
-	<sol 2>
+	<sol 2> // issue = "GPU: "CUDNN_STATUS_INTERNAL_ERROR"."
 	(Reference - https://github.com/tensorflow/tensorflow/issues/24496)
 	(Reference - https://eehoeskrap.tistory.com/290)
 	config = tf.ConfigProto()
@@ -187,3 +187,13 @@
 	(libxcb-xinerama.so.0. libxcb-xinerama0 작동 하도록 다시 설치)
 	export QT_DEBUG_PLUGINS=0
 	sudo apt-get install --reinstall libxcb-xinerama0
+
+### a.7 'ResourceExhaustedError: OOM when allocating tensor with shape[4,1280,15,20] and type float on ...' <br/> Hint: If you want to see a list of allocated tensors when OOM happens, add report_tensor_allocations_upon_oom to RunOptions for current allocation info.
+	<sol 1>
+	(Reference - https://stackoverflow.com/questions/49665757/how-to-add-report-tensor-allocations-upon-oom-to-runoptions-in-keras)
+	import tensorflow as tf
+	run_opts = tf.RunOptions(report_tensor_allocations_upon_oom = True)
+	model.compile(loss = "...", optimizer = "...", metrics = "..", options = run_opts)
+
+	<sol 2>
+	batch size issue!
