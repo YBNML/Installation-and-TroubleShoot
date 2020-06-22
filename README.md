@@ -197,3 +197,10 @@
 
 	<sol 2>
 	batch size issue!
+
+### a.8 raise TypeError('Not JSON Serializable: %s' % (obj,)) <br/> TypeError: Not JSON Serializable: ?
+	(Reference - https://github.com/keras-team/keras/issues/9342#issuecomment-396056333)
+	(in /home/iasl/my-common-env/lib/python3.7/site-packages/keras/engine)
+	from tensorflow.python.framework.tensor_shape import Dimension
+	if type(obj) == Dimension:
+	return int(obj.value or 0)
