@@ -4,7 +4,7 @@
 
 ## 1. Requirements
 
- [Github]
+ [Github-DenseDepth]
 * Ubuntu : 18.04.6 LTS
 * nvidia-driver : nvidia-450.36.06 (automatically fetched, when I install 'cuda')
 * cuda : 10.0.130 
@@ -15,6 +15,15 @@
 * keras : 2.2.4
 * (other package) : keras pillow matplotlib scikit-learn scikit-image opencv-python pydot GraphViz PyGLM PySide2 pyopengl 
 
+[Github-monodepth2]
+* Anaconda
+* Python 3.6.6 (If you use py3.7 you may have issues about Installing openCV)
+* PyTorch 1.0.0
+* CUDA 10.0
+* Ubuntu 18.04
+* OpenCV version 3.3.1
+* 
+
  [Realsense D435]
 * RealSense SDK 2.0 (librealsense version 2.35.0)
 
@@ -22,7 +31,7 @@
 
 <hr/>
 
-## 2. Setting_[Github]
+## 2. Setting_[Github-DenseDepth]
 
 ### 2.1. nvidia-driver : nvidia-440.64
 	(Reference - https://hiseon.me/linux/ubuntu/install_nvidia_driver/)
@@ -111,6 +120,22 @@
 ### 2.6 keras 2.2.4
 	pip install keras==2.2.4
 
+
+<hr/>
+
+## 3. Setting_[Github-monodepth2]
+
+### 3.1 Anaconda
+	(Install 'Anaconda Installer')
+	bash Anaconda3-2019.03-Linux-x86_64.sh
+	conda create -n monodepth2 python=3.6.6
+
+### 3.2 PyTorch 1.0.0
+	conda install pytorch==1.0.0 torchvision==0.2.1 cuda100 -c pytorch
+	pip install tensorboardX==1.4
+
+### 3.3 OpenCV version 3.3.1
+	conda install opencv=3.3.1 
 
 <hr/>
 
